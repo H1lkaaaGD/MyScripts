@@ -1,3 +1,14 @@
+while true do
+    game:FindFirstChild("SurgePart"):Destroy();
+    game:FindFirstChild("Pebbles"):Destroy();
+    game:FindFirstChild("Caws"):Destroy();
+    game:FindFirstChild("LiveClientCaw"):Destroy();
+    game:FindFirstChild("Flowers"):Destroy();
+    game:FindFirstChild("GrassSign"):Destroy();
+    game:FindFirstChild("GrassTuft"):Destroy();
+    game:FindFirstChild("SurgePart"):Destroy();
+end
+--[[
 local function removeObject(name, type)
     for _, obj in pairs(game.Workspace:GetDescendants()) do
         if obj:IsA(type) and obj.Name == name then
@@ -37,3 +48,4 @@ while true do
     end
     wait(1)
 end
+--]]
