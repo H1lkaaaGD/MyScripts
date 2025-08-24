@@ -26,7 +26,13 @@ local objectsToRemove = {
     "TreeGroupCell",
     "BigVase",
     "Clouds",
-    "SkyboxPart"
+    "SkyboxPart",
+    "Tape",
+    "Wrench",
+    "Measure",
+    "DoubleWrench",
+    "FloorGrassPatch",
+    "Leaves"
 }
 
 -- Таблица для отслеживания уже удаленных объектов
