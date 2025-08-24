@@ -2,6 +2,7 @@
 local objectsToRemove = {
     "LiveClientCaw",
     "CawLive", 
+    "Caws",
     "Pinetree_Optimized",
     "PeeskyWeeds",
     "HidingShrub",
@@ -17,12 +18,15 @@ local objectsToRemove = {
     "Seeds",
     "SeedsBag",
     "Twine",
-    "Glowe",
+    "Glove",
     "Hat",
     "Pot",
     "PottedPlant",
-    "PotBoroken",
-    "TreeGroupCell"
+    "PotBroken",
+    "TreeGroupCell",
+    "BigVase",
+    "Clouds",
+    "SkyboxPart"
 }
 
 -- Таблица для отслеживания уже удаленных объектов
