@@ -9,6 +9,7 @@ local objectsToRemove = {
     "Bush",
     "GrassBorder",
     "GrassTuft",
+    "GrassPatch",
     "Pebbles",
     "Dust",
     "CatTails",
