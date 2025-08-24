@@ -14,7 +14,7 @@ local objectsToRemove = {
     "GrassTuft",
     "Pebbles",
     "Dust",
-    "CatTail",
+    "CatTails",
     "Seeds",
     "SeedsBag",
     "Twine",
