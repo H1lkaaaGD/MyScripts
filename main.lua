@@ -4,7 +4,7 @@ local objectsToRemove = {
     "CawLive", 
     "Caws",
     "Pinetree_Optimized",
-    "PeeskyWeeds",
+    "PeskyWeeds",
     "HidingShrub",
     "GrassSign",
     "Flowers",
@@ -32,7 +32,15 @@ local objectsToRemove = {
     "Measure",
     "DoubleWrench",
     "FloorGrassPatch",
-    "Leaves"
+    "Leaves",
+    "Letter",
+    "ScewdriverBottom",
+    "Leaves1",
+    "Leaves2",
+    "Leaves3",
+    "Vines",
+    "Vines_Cut",
+    "Thorns"
 }
 
 -- Таблица для отслеживания уже удаленных объектов
