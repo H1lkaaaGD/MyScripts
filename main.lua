@@ -1,8 +1,5 @@
 -- Список объектов для удаления
 local objectsToRemove = {
-    "LiveClientCaw",
-    "CawLive", 
-    "Caws",
     "Pinetree_Optimized",
     "PeskyWeeds",
     "HidingShrub",
