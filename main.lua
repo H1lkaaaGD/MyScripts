@@ -40,7 +40,8 @@ local objectsToRemove = {
     "Leaves3",
     "Vines",
     "Vines_Cut",
-    "Thorns"
+    "Thorns",
+    "VinesBlockade"
 }
 
 -- Таблица для отслеживания уже удаленных объектов
