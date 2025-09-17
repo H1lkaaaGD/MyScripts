@@ -1,6 +1,9 @@
 -- Список объектов для удаления
 local objectsToRemove = {
     "Wooden_Chair",
+    "Regal_Couch_Feighbor",
+    "Regal_Couch",
+    "PlayerBerrier",
     "WoodenBarricade",
     "Potted_Plant",
     "PaintingBig",
