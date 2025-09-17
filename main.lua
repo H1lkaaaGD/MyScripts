@@ -2,9 +2,7 @@
 local objectsToRemove = {
     "Wooden_Chair",
     "WoodenBarricade",
-    "Wooden_Barricade"
     "Potted_Plant",
-    "PottedPlant",
     "PaintingBig",
     "Pinetree_Optimized",
     "PeskyWeeds",
