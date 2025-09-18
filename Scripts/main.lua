@@ -1,4 +1,3 @@
--- Список объектов для удаления
 local objectsToRemove = {
     "Wooden_Chair",
     "Regal_Couch_Feighbor",
@@ -63,10 +62,7 @@ function IsPartOfGroundskeeper(obj)
     end
     return false
 end
-
--- Функция для проверки, нужно ли удалять объект (с учетом исключений)
 function ShouldRemoveObject(obj, objectName)
-    -- Исключение: Glowe и Hat не удаляем, если они часть Groundskeeper
     if (objectName == "Glowe" or objectName == "Hat") and IsPartOfGroundskeeper(obj) then
         return false
     end
