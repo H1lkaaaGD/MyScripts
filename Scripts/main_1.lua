@@ -1,14 +1,16 @@
 local objectsToRemove = {
     "Wooden_Chair",
+    "Boards",
     "Regal_Couch_Feighbor",
     "Regal_Couch",
     "PlayerBarrier",
     "Painting_Big",
-    "Painting_Tall",
+    "Regal_Chair",
     "Wooden_Stool",
     "WoodenBarricade",
     "Potted_Plant",
     "Potted_PlantNo",
+    "Books",
     "Dust",
 }
 
@@ -19,7 +21,7 @@ local removedObjects = {}
 function IsPartOfGroundskeeper(obj)
     local current = obj
     while current.Parent ~= nil do
-        if current.Name == "Unknown" then
+        if current.Name == "" then
             return true
         end
         current = current.Parent
