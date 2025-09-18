@@ -12,6 +12,7 @@ local objectsToRemove = {
     "Potted_PlantNo",
     "Books",
     "Dust",
+    "Regal_Ottoman"
 }
 
 -- Таблица для отслеживания уже удаленных объектов
