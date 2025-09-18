@@ -2,9 +2,13 @@ local objectsToRemove = {
     "Wooden_Chair",
     "Regal_Couch_Feighbor",
     "Regal_Couch",
-    "PlayerBerrier",
+    "PlayerBarrier",
+    "Painting_Big",
+    "Painting_Tall",
+    "Wooden_Stool",
     "WoodenBarricade",
     "Potted_Plant",
+    "Potted_PlantNo",
     "Dust",
 }
 
