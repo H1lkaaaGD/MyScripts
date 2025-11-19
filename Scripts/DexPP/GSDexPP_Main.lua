@@ -13836,7 +13836,7 @@ Main = (function()
 	Main.AppControls = {}
 	Main.Apps = Apps
 	Main.MenuApps = {}
-	Main.GitRepoName = "H1lkaaaGD/MyScripts"
+	Main.GitRepoName = "AZYsGithub/DexPlusPlus"
 
 	Main.DisplayOrders = {
 		SideWindow = 8,
@@ -15194,6 +15194,7 @@ Main.Init()
 
 
 --for i,v in pairs(Main.MissingEnv) do print(i,v) end
+
 
 
 
