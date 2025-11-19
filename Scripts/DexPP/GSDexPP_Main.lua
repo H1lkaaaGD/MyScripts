@@ -91,7 +91,7 @@ local function main()
 
 	-- StarterGui.ScreenGui
 	window = Lib.Window.new()
-	window:SetTitle("Console")
+	window:SetTitle("Консоль")
 	window:Resize(500,400)
 	Console.Window = window
 
@@ -361,7 +361,7 @@ local function main()
 	G2L["17"]["Size"] = UDim2.new(1, 0, 0, 1);
 	G2L["17"]["Position"] = UDim2.new(0, 20, 0, 0);
 	G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-	G2L["17"]["Text"] = [[(таймстамп) <font color="rgb(255, 255, 255)">Выход</font>]];
+	G2L["17"]["Text"] = [[(timestamp) <font color="rgb(255, 255, 255)">Аутпут</font>]];
 	G2L["17"]["BackgroundTransparency"] = 1;
 
 
@@ -1999,7 +1999,7 @@ local function main()
 			end
 		end})
 
-		context:Register("JUMP_TO_PARENT",{Name = "Jump to Parent", IconMap = Explorer.MiscIcons, Icon = "JumpToParent", OnClick = function()
+		context:Register("JUMP_TO_PARENT",{Name = "Перейти к род. элементу", IconMap = Explorer.MiscIcons, Icon = "JumpToParent", OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local sList = selection.List
@@ -2020,7 +2020,7 @@ local function main()
 			end
 		end})
 
-		context:Register("TELEPORT_TO",{Name = "Teleport To", IconMap = Explorer.MiscIcons, Icon = "TeleportTo", OnClick = function()
+		context:Register("TELEPORT_TO",{Name = "Телепортироваться", IconMap = Explorer.MiscIcons, Icon = "TeleportTo", OnClick = function()
 			local sList = selection.List
 			local plrRP = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
 
@@ -2062,7 +2062,7 @@ local function main()
 		end})
 
 		local OldAnimation
-		context:Register("PLAY_TWEEN",{Name = "Play Tween", IconMap = Explorer.MiscIcons, Icon = "Play", OnClick = function()
+		context:Register("PLAY_TWEEN",{Name = "Какойто \"плей твин\"", IconMap = Explorer.MiscIcons, Icon = "Play", OnClick = function()
 			local sList = selection.List
 
 			for i = 1, #sList do
@@ -2074,7 +2074,7 @@ local function main()
 		end})
 
 		local OldAnimation
-		context:Register("LOAD_ANIMATION",{Name = "Load Animation", IconMap = Explorer.MiscIcons, Icon = "Play", OnClick = function()
+		context:Register("LOAD_ANIMATION",{Name = "Загрузить анимацию", IconMap = Explorer.MiscIcons, Icon = "Play", OnClick = function()
 			local sList = selection.List
 
 			local Humanoid = plr.Character and plr.Character:FindFirstChild("Humanoid")
@@ -2093,7 +2093,7 @@ local function main()
 			end
 		end})
 
-		context:Register("STOP_ANIMATION",{Name = "Stop Animation", IconMap = Explorer.MiscIcons, Icon = "Pause", OnClick = function()
+		context:Register("STOP_ANIMATION",{Name = "Остановить анимацию", IconMap = Explorer.MiscIcons, Icon = "Pause", OnClick = function()
 			local sList = selection.List
 
 			local Humanoid = plr.Character and plr.Character:FindFirstChild("Humanoid")
@@ -2111,7 +2111,7 @@ local function main()
 			end
 		end})
 
-		context:Register("EXPAND_ALL",{Name = "Expand All", OnClick = function()
+		context:Register("EXPAND_ALL",{Name = "Развернуть всё", OnClick = function()
 			local sList = selection.List
 
 			local function expand(node)
@@ -2130,7 +2130,7 @@ local function main()
 			Explorer.ForceUpdate()
 		end})
 
-		context:Register("COLLAPSE_ALL",{Name = "Collapse All", OnClick = function()
+		context:Register("COLLAPSE_ALL",{Name = "Свернуть всё", OnClick = function()
 			local sList = selection.List
 
 			local function expand(node)
@@ -2149,7 +2149,7 @@ local function main()
 			Explorer.ForceUpdate()
 		end})
 
-		context:Register("CLEAR_SEARCH_AND_JUMP_TO",{Name = "Clear Search and Jump to", OnClick = function()
+		context:Register("CLEAR_SEARCH_AND_JUMP_TO",{Name = "Очистить поиск и перейти", OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local sList = selection.List
@@ -2173,7 +2173,7 @@ local function main()
 			return str
 		end
 
-		context:Register("COPY_PATH",{Name = "Copy Path", IconMap = Explorer.LegacyClassIcons, Icon = 50, OnClick = function()
+		context:Register("COPY_PATH",{Name = "Скопировать путь", IconMap = Explorer.LegacyClassIcons, Icon = 50, OnClick = function()
 			local sList = selection.List
 			if #sList == 1 then
 				env.setclipboard(clth(Explorer.GetInstancePath(sList[1].Obj)))
@@ -2192,7 +2192,7 @@ local function main()
 			end
 		end})
 
-		context:Register("INSERT_OBJECT",{Name = "Insert Object", IconMap = Explorer.MiscIcons, Icon = "InsertObject", OnClick = function()
+		context:Register("INSERT_OBJECT",{Name = "Добавить объект", IconMap = Explorer.MiscIcons, Icon = "InsertObject", OnClick = function()
 			local mouse = Main.Mouse
 			local x,y = Explorer.LastRightClickX or mouse.X, Explorer.LastRightClickY or mouse.Y
 			Explorer.InsertObjectContext:Show(x,y)
@@ -2206,7 +2206,7 @@ local function main()
 
 		end})]]
 
-		context:Register("SAVE_INST",{Name = "Save to File", IconMap = Explorer.MiscIcons, Icon = "Save", OnClick = function()
+		context:Register("SAVE_INST",{Name = "Сохранить в файл", IconMap = Explorer.MiscIcons, Icon = "Save", OnClick = function()
 			local sList = selection.List
 			if #sList == 1 then
 				Lib.SaveAsPrompt("Place_"..game.PlaceId.."_"..sList[1].Obj.ClassName.."_"..sList[1].Obj.Name.."_"..os.time(), function(filename)
@@ -2219,7 +2219,7 @@ local function main()
 				for i = 1,#sList do
 					-- sList[i].Obj.Name.." ("..sList[1].Obj.ClassName..")"
 					-- "Place_"..game.PlaceId.."_"..sList[1].Obj.ClassName.."_"..sList[i].Obj.Name.."_"..os.time()
-					Lib.SaveAsPrompt("Place_"..game.PlaceId.."_"..sList[i].Obj.ClassName.."_"..sList[i].Obj.Name.."_"..os.time(), function(filename)
+					Lib.SaveAsPrompt("Игра_"..game.PlaceId.."_"..sList[i].Obj.ClassName.."_"..sList[i].Obj.Name.."_"..os.time(), function(filename)
 						env.saveinstance(sList[i].Obj, filename, {
 							Decompile = true,
 							RemovePlayerCharacters = false
@@ -2242,7 +2242,7 @@ local function main()
 			BindableRemote = "Fire",
 			BindableFunction = "Invoke",
 		}
-		context:Register("BLOCK_REMOTE",{Name = "Block From Firing", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Empty", OnClick = function()
+		context:Register("BLOCK_REMOTE",{Name = "чего блять??? что за \"\Препятствовать Стрельбе"", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Empty", OnClick = function()
 			local sList = selection.List
 			for i, list in sList do
 				local obj = list.Obj
@@ -2263,7 +2263,7 @@ local function main()
 			end
 		end})
 		
-		context:Register("UNBLOCK_REMOTE",{Name = "Unblock", IconMap = Explorer.MiscIcons, Icon = "Play", DisabledIcon = "Empty", OnClick = function()
+		context:Register("UNBLOCK_REMOTE",{Name = "Разблокировать", IconMap = Explorer.MiscIcons, Icon = "Play", DisabledIcon = "Empty", OnClick = function()
 			local sList = selection.List
 			for i, list in sList do
 				local obj = list.Obj
@@ -2277,7 +2277,7 @@ local function main()
 			end
 		end})
 
-		context:Register("COPY_API_PAGE",{Name = "Copy Roblox API Page URL", IconMap = Explorer.MiscIcons, Icon = "Reference", OnClick = function()
+		context:Register("COPY_API_PAGE",{Name = "Скопировать роблокс API Страницу URL", IconMap = Explorer.MiscIcons, Icon = "Reference", OnClick = function()
 			local sList = selection.List
 			if #sList == 1 then
 				env.setclipboard(
@@ -2286,7 +2286,7 @@ local function main()
 			end
 		end})
 
-		context:Register("3DVIEW_MODEL",{Name = "3D Preview Object", IconMap = Explorer.LegacyClassIcons, Icon = 54, OnClick = function()
+		context:Register("3DVIEW_MODEL",{Name = "3D Просмотр объекта", IconMap = Explorer.LegacyClassIcons, Icon = 54, OnClick = function()
 			local sList = selection.List
 			local isa = game.IsA
 			
@@ -2298,7 +2298,7 @@ local function main()
 			end
 		end})
 		
-		context:Register("VIEW_OBJECT",{Name = "View Object (Right click to reset)", IconMap = Explorer.LegacyClassIcons, Icon = 5, OnClick = function()
+		context:Register("VIEW_OBJECT",{Name = "Посмотреть объект (правый клик для сброса)", IconMap = Explorer.LegacyClassIcons, Icon = 5, OnClick = function()
 			local sList = selection.List
 			local isa = game.IsA
 
@@ -2314,44 +2314,44 @@ local function main()
 			workspace.CurrentCamera.CameraSubject = plr.Character
 		end})
 
-		context:Register("VIEW_SCRIPT",{Name = "View Script", IconMap = Explorer.MiscIcons, Icon = "ViewScript", DisabledIcon = "Empty", OnClick = function()
+		context:Register("VIEW_SCRIPT",{Name = "Посмотреть скрипт", IconMap = Explorer.MiscIcons, Icon = "ViewScript", DisabledIcon = "Empty", OnClick = function()
 			local scr = selection.List[1] and selection.List[1].Obj
 			if scr then ScriptViewer.ViewScript(scr) end
 		end})
-		context:Register("DUMP_FUNCTIONS",{Name = "Dump Functions", IconMap = Explorer.MiscIcons, Icon = "SelectChildren", DisabledIcon = "Empty", OnClick = function()
+		context:Register("DUMP_FUNCTIONS",{Name = "Дамп функций", IconMap = Explorer.MiscIcons, Icon = "SelectChildren", DisabledIcon = "Empty", OnClick = function()
 			local scr = selection.List[1] and selection.List[1].Obj
 			if scr then ScriptViewer.DumpFunctions(scr) end
 		end})
 
-		context:Register("FIRE_TOUCHTRANSMITTER",{Name = "Fire TouchTransmitter", OnClick = function()
+		context:Register("FIRE_TOUCHTRANSMITTER",{Name = "Активировать TouchTransmitter", OnClick = function()
 			local hrp = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
 			if not hrp then return end
 			for _, v in ipairs(selection.List) do if v.Obj and v.Obj:IsA("TouchTransmitter") then firetouchinterest(hrp, v.Obj.Parent, 0) end end
 		end})
 
-		context:Register("FIRE_CLICKDETECTOR",{Name = "Fire ClickDetector", OnClick = function()
+		context:Register("FIRE_CLICKDETECTOR",{Name = "Активировать ClickDetector", OnClick = function()
 			local hrp = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
 			if not hrp then return end
 			for _, v in ipairs(selection.List) do if v.Obj and v.Obj:IsA("ClickDetector") then fireclickdetector(v.Obj) end end
 		end})
 
-		context:Register("FIRE_PROXIMITYPROMPT",{Name = "Fire ProximityPrompt", OnClick = function()
+		context:Register("FIRE_PROXIMITYPROMPT",{Name = "Активировать ProximityPrompt", OnClick = function()
 			local hrp = plr.Character and plr.Character:FindFirstChild("HumanoidRootPart")
 			if not hrp then return end
 			for _, v in ipairs(selection.List) do if v.Obj and v.Obj:IsA("ProximityPrompt") then fireproximityprompt(v.Obj) end end
 		end})
 
-		context:Register("VIEW_SCRIPT",{Name = "View Script", IconMap = Explorer.MiscIcons, Icon = "ViewScript", DisabledIcon = "Empty", OnClick = function()
+		context:Register("VIEW_SCRIPT",{Name = "Посмотреть скрипт", IconMap = Explorer.MiscIcons, Icon = "ViewScript", DisabledIcon = "Empty", OnClick = function()
 			local scr = selection.List[1] and selection.List[1].Obj
 			if scr then ScriptViewer.ViewScript(scr) end
 		end})
 
-		context:Register("SAVE_SCRIPT",{Name = "Save Script", IconMap = Explorer.MiscIcons, Icon = "Save", DisabledIcon = "Empty", OnClick = function()
+		context:Register("SAVE_SCRIPT",{Name = "Сохранить скрипт", IconMap = Explorer.MiscIcons, Icon = "Save", DisabledIcon = "Empty", OnClick = function()
 			for _, v in next, selection.List do
 				if v.Obj:IsA("LuaSourceContainer") and env.isViableDecompileScript(v.Obj) then
 					local success, source = pcall(env.decompile, v.Obj)
-					if not success or not source then source = ("-- DEX - %s failed to decompile %s"):format(env.executor, v.Obj.ClassName) end
-					local fileName = ("%s_%s_%i_Source.txt"):format(env.parsefile(v.Obj.Name), v.Obj.ClassName, game.PlaceId)
+					if not success or not source then source = ("-- DEX - %s ощибка при сохранении %s"):format(env.executor, v.Obj.ClassName) end
+					local fileName = ("%s_%s_%i_Source.lua"):format(env.parsefile(v.Obj.Name), v.Obj.ClassName, game.PlaceId)
 					--env.writefile(fileName, source)
 					Lib.SaveAsPrompt(fileName, source)
 					
@@ -2360,7 +2360,7 @@ local function main()
 			end
 		end})
 
-		context:Register("SAVE_BYTECODE",{Name = "Save Script Bytecode", IconMap = Explorer.MiscIcons, Icon = "Save", DisabledIcon = "Empty", OnClick = function()
+		context:Register("SAVE_BYTECODE",{Name = "Сохранить байткод скрипта", IconMap = Explorer.MiscIcons, Icon = "Save", DisabledIcon = "Empty", OnClick = function()
 			for _, v in next, selection.List do
 				if v.Obj:IsA("LuaSourceContainer") and env.isViableDecompileScript(v.Obj) then
 					local success, bytecode = pcall(env.getscriptbytecode, v.Obj)
@@ -2374,7 +2374,7 @@ local function main()
 			end
 		end})
 
-		context:Register("SELECT_CHARACTER",{Name = "Select Character", IconMap = Explorer.LegacyClassIcons, Icon = 9, OnClick = function()
+		context:Register("SELECT_CHARACTER",{Name = "Выделить чаракстера", IconMap = Explorer.LegacyClassIcons, Icon = 9, OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local sList = selection.List
@@ -2396,7 +2396,7 @@ local function main()
 			end
 		end})
 
-		context:Register("VIEW_PLAYER",{Name = "View Player", IconMap = Explorer.LegacyClassIcons, Icon = 5, OnClick = function()
+		context:Register("VIEW_PLAYER",{Name = "Посмотреть игрока", IconMap = Explorer.LegacyClassIcons, Icon = 5, OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local sList = selection.List
@@ -2412,11 +2412,11 @@ local function main()
 			end
 		end})
 
-		context:Register("SELECT_LOCAL_PLAYER",{Name = "Select Local Player", IconMap = Explorer.LegacyClassIcons, Icon = 9, OnClick = function()
+		context:Register("SELECT_LOCAL_PLAYER",{Name = "Выделить локального игрока", IconMap = Explorer.LegacyClassIcons, Icon = 9, OnClick = function()
 			pcall(function() if nodes[plr] then selection:Set(nodes[plr]) Explorer.ViewNode(nodes[plr]) end end)
 		end})
 
-		context:Register("SELECT_ALL_CHARACTERS",{Name = "Select All Characters", IconMap = Explorer.LegacyClassIcons, Icon = 2, OnClick = function()
+		context:Register("SELECT_ALL_CHARACTERS",{Name = "Выделить всех чаракстеров", IconMap = Explorer.LegacyClassIcons, Icon = 2, OnClick = function()
 			local newSelection = {}
 			local sList = selection.List
 
@@ -2435,11 +2435,11 @@ local function main()
 			end
 		end})
 
-		context:Register("REFRESH_NIL",{Name = "Refresh Nil Instances", OnClick = function()
+		context:Register("REFRESH_NIL",{Name = "Обновить НИЛ Инстансес", OnClick = function()
 			Explorer.RefreshNilInstances()
 		end})
 
-		context:Register("HIDE_NIL",{Name = "Hide Nil Instances", OnClick = function()
+		context:Register("HIDE_NIL",{Name = "Скрыть НИЛ Инстансес", OnClick = function()
 			Explorer.HideNilInstances()
 		end})
 
@@ -3059,7 +3059,7 @@ return search]==]
 		entryTemplate = create({
 			{1,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0,0,0),BackgroundTransparency=1,BorderColor3=Color3.new(0,0,0),Font=3,Name="Entry",Position=UDim2.new(0,1,0,1),Size=UDim2.new(0,250,0,20),Text="",TextSize=14,}},
 			{2,"Frame",{BackgroundColor3=Color3.new(0.04313725605607,0.35294118523598,0.68627452850342),BackgroundTransparency=1,BorderColor3=Color3.new(0.33725491166115,0.49019610881805,0.73725491762161),BorderSizePixel=0,Name="Indent",Parent={1},Position=UDim2.new(0,20,0,0),Size=UDim2.new(1,-20,1,0),}},
-			{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="EntryName",Parent={2},Position=UDim2.new(0,26,0,0),Size=UDim2.new(1,-26,1,0),Text="Workspace",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
+			{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="EntryName",Parent={2},Position=UDim2.new(0,26,0,0),Size=UDim2.new(1,-26,1,0),Text="Воркспейс",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
 			{4,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ClipsDescendants=true,Font=3,Name="Expand",Parent={2},Position=UDim2.new(0,-20,0,0),Size=UDim2.new(0,20,0,20),Text="",TextSize=14,}},
 			{5,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://5642383285",ImageRectOffset=Vector2.new(144,16),ImageRectSize=Vector2.new(16,16),Name="Icon",Parent={4},Position=UDim2.new(0,2,0,2),ScaleType=4,Size=UDim2.new(0,16,0,16),}},
 			{6,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ImageRectOffset=Vector2.new(304,0),ImageRectSize=Vector2.new(16,16),Name="Icon",Parent={2},Position=UDim2.new(0,4,0,2),ScaleType=4,Size=UDim2.new(0,16,0,16),}},
@@ -3327,7 +3327,7 @@ return search]==]
 			{1,"Folder",{Name="ExplorerItems",}},
 			{2,"Frame",{BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="ToolBar",Parent={1},Size=UDim2.new(1,0,0,22),}},
 			{3,"Frame",{BackgroundColor3=Color3.new(0.14901961386204,0.14901961386204,0.14901961386204),BorderColor3=Color3.new(0.1176470592618,0.1176470592618,0.1176470592618),BorderSizePixel=0,Name="SearchFrame",Parent={2},Position=UDim2.new(0,3,0,1),Size=UDim2.new(1,-6,0,18),}},
-			{4,"TextBox",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ClearTextOnFocus=false,Font=3,Name="SearchBox",Parent={3},PlaceholderColor3=Color3.new(0.39215689897537,0.39215689897537,0.39215689897537),PlaceholderText="Search workspace",Position=UDim2.new(0,4,0,0),Size=UDim2.new(1,-24,0,18),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=0,}},
+			{4,"TextBox",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ClearTextOnFocus=false,Font=3,Name="SearchBox",Parent={3},PlaceholderColor3=Color3.new(0.39215689897537,0.39215689897537,0.39215689897537),PlaceholderText="Искать в воркспейсе",Position=UDim2.new(0,4,0,0),Size=UDim2.new(1,-24,0,18),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=0,}},
 			{5,"UICorner",{CornerRadius=UDim.new(0,2),Parent={3},}},
 			{6,"UIStroke",{Thickness=1.4,Parent={3},Color=Color3.fromRGB(42,42,42)}},
 			{7,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.12549020349979,0.12549020349979,0.12549020349979),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="Reset",Parent={3},Position=UDim2.new(1,-17,0,1),Size=UDim2.new(0,16,0,16),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,}},
@@ -3917,12 +3917,12 @@ local function main()
 			win = Lib.Window.new()
 			win.Alignable = false
 			win.Resizable = false
-			win:SetTitle("Save As")
+			win:SetTitle("Сохранить как")
 			win:SetSize(300,95)
 
 			local saveButton = Lib.Button.new()
 			local nameLabel = Lib.Label.new()
-			nameLabel.Text = "Name"
+			nameLabel.Text = "Имя"
 			nameLabel.Position = UDim2.new(0,30,0,10)
 			nameLabel.Size = UDim2.new(0,40,0,20)
 			win:Add(nameLabel)
@@ -3944,11 +3944,11 @@ local function main()
 			errorLabel.Size = UDim2.new(1,-10,0,20)
 			errorLabel.TextColor3 = Settings.Theme.Important
 			win.ErrorLabel = errorLabel
-			win:Add(errorLabel,"Error")
+			win:Add(errorLabel,"Ощибка")
 
 			local cancelButton = Lib.Button.new()
 			cancelButton.AnchorPoint = Vector2.new(1,1)
-			cancelButton.Text = "Cancel"
+			cancelButton.Text = "Отмена"
 			cancelButton.Position = UDim2.new(1,-5,1,-5)
 			cancelButton.Size = UDim2.new(0.5,-10,0,20)
 			cancelButton.OnClick:Connect(function()
@@ -3956,7 +3956,7 @@ local function main()
 			end)
 			win:Add(cancelButton)
 
-			saveButton.Text = "Save"
+			saveButton.Text = "Сохранить"
 			saveButton.AnchorPoint = Vector2.new(0,1)
 			saveButton.Position = UDim2.new(0,5,1,-5)
 			saveButton.Size = UDim2.new(0.5,-5,0,20)
@@ -3984,7 +3984,7 @@ local function main()
 						task.wait(1)
 					end
 				else
-					win.Elements.Error.Text = "Your executor does not support 'writefile'"
+					win.Elements.Error.Text = "Твой экзекьютор не поддерживает 'writefile'"
 					task.wait(1)
 				end
 			elseif type(codeToSave) == "function" then
@@ -4002,7 +4002,7 @@ local function main()
 			win:Close()
 		end
 
-		win:SetTitle("Save As")
+		win:SetTitle("Сохранить как")
 		win.Elements.Error.Text = ""
 		win.Elements.NameBox:SetText(filename or "")
 		
@@ -6016,7 +6016,7 @@ local function main()
 				--[[background mod set to 0.05]]	{3,"Frame",{BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderSizePixel=0,Name="Content",Parent={2},Position=UDim2.new(0,0,0,20),Size=UDim2.new(1,0,1,-20),ClipsDescendants=true}},
 				{4,"Frame",{BackgroundColor3=Color3.fromRGB(33,33,33),BorderSizePixel=0,Name="Line",Parent={3},Size=UDim2.new(1,0,0,1),}},
 				{5,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="TopBar",Parent={2},Size=UDim2.new(1,0,0,20),Text = ""}},
-				{6,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={5},Position=UDim2.new(0,5,0,0),Size=UDim2.new(1,-10,0,20),Text="Window",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=0}},
+				{6,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={5},Position=UDim2.new(0,5,0,0),Size=UDim2.new(1,-10,0,20),Text="Окно",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=0}},
 				{7,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.12549020349979,0.12549020349979,0.12549020349979),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="Close",Parent={5},Position=UDim2.new(1,-18,0,2),Size=UDim2.new(0,16,0,16),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,}},
 				{8,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://5054663650",Parent={7},Position=UDim2.new(0,3,0,3),Size=UDim2.new(0,10,0,10),}},
 				{9,"UICorner",{CornerRadius=UDim.new(0,4),Parent={7},}},
@@ -6925,13 +6925,13 @@ local function main()
 				{11,"UICorner",{CornerRadius=UDim.new(0,2),Parent={9},}},
 				{12,"Frame",{BackgroundColor3=Color3.new(0.14117647707462,0.14117647707462,0.14117647707462),BorderSizePixel=0,Name="Line",Parent={8},Position=UDim2.new(0,0,1,0),Size=UDim2.new(1,0,0,1),}},
 				{13,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BackgroundTransparency=1,BorderColor3=Color3.new(0.33725491166115,0.49019610881805,0.73725491762161),BorderSizePixel=0,Font=3,Name="Entry",Parent={1},Size=UDim2.new(1,0,0,22),Text="",TextSize=14,Visible=false,}},
-				{14,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="EntryName",Parent={13},Position=UDim2.new(0,24,0,0),Size=UDim2.new(1,-24,1,0),Text="Duplicate",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
+				{14,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="EntryName",Parent={13},Position=UDim2.new(0,24,0,0),Size=UDim2.new(1,-24,1,0),Text="Дублировать",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
 				{15,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Shortcut",Parent={13},Position=UDim2.new(0,24,0,0),Size=UDim2.new(1,-30,1,0),Text="Ctrl+D",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=1,}},
 				{16,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ImageRectOffset=Vector2.new(304,0),ImageRectSize=Vector2.new(16,16),Name="Icon",Parent={13},Position=UDim2.new(0,2,0,3),ScaleType=4,Size=UDim2.new(0,16,0,16),}},
 				{17,"UICorner",{CornerRadius=UDim.new(0,4),Parent={13},}},
 				{18,"Frame",{BackgroundColor3=Color3.new(0.21568629145622,0.21568629145622,0.21568629145622),BackgroundTransparency=1,BorderSizePixel=0,Name="Divider",Parent={1},Position=UDim2.new(0,0,0,20),Size=UDim2.new(1,0,0,7),Visible=false,}},
 				{19,"Frame",{BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="Line",Parent={18},Position=UDim2.new(0,0,0.5,0),Size=UDim2.new(1,0,0,1),}},
-				{20,"TextLabel",{AnchorPoint=Vector2.new(0,0.5),BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="DividerName",Parent={18},Position=UDim2.new(0,2,0.5,0),Size=UDim2.new(1,-4,1,0),Text="Objects",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.60000002384186,TextXAlignment=0,Visible=false,}}
+				{20,"TextLabel",{AnchorPoint=Vector2.new(0,0.5),BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="DividerName",Parent={18},Position=UDim2.new(0,2,0.5,0),Size=UDim2.new(1,-4,1,0),Text="Объекты",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.60000002384186,TextXAlignment=0,Visible=false,}}
 			})
 
 			self.GuiElems.Main = contextGui.Main
@@ -8937,7 +8937,7 @@ local function main()
 			local gui = create({
 				{1,"ScreenGui",{Name="BrickColor",}},
 				{2,"Frame",{Active=true,BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderColor3=Color3.new(0.1294117718935,0.1294117718935,0.1294117718935),Parent={1},Position=UDim2.new(0.40000000596046,0,0.40000000596046,0),Size=UDim2.new(0,337,0,380),}},
-				{3,"TextButton",{BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="MoreColors",Parent={2},Position=UDim2.new(0,5,1,-30),Size=UDim2.new(1,-10,0,25),Text="More Colors",TextColor3=Color3.new(1,1,1),TextSize=14,}},
+				{3,"TextButton",{BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="MoreColors",Parent={2},Position=UDim2.new(0,5,1,-30),Size=UDim2.new(1,-10,0,25),Text="Больше цветов",TextColor3=Color3.new(1,1,1),TextSize=14,}},
 				{4,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Image="rbxassetid://1281023007",ImageColor3=Color3.new(0.33333334326744,0.33333334326744,0.49803924560547),Name="Hex",Parent={2},Size=UDim2.new(0,35,0,35),Visible=false,}},
 			})
 			local colorFrame = gui.Frame
@@ -9056,7 +9056,7 @@ local function main()
 			local guiContents = create({
 				{1,"Frame",{BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderSizePixel=0,ClipsDescendants=true,Name="Content",Position=UDim2.new(0,0,0,20),Size=UDim2.new(1,0,1,-20),}},
 				{2,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="BasicColors",Parent={1},Position=UDim2.new(0,5,0,5),Size=UDim2.new(0,180,0,200),}},
-				{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={2},Position=UDim2.new(0,0,0,-5),Size=UDim2.new(1,0,0,26),Text="Basic Colors",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
+				{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={2},Position=UDim2.new(0,0,0,-5),Size=UDim2.new(1,0,0,26),Text="Стандартные цвета",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
 				{4,"Frame",{BackgroundColor3=Color3.new(0.14901961386204,0.14901961386204,0.14901961386204),BorderColor3=Color3.new(0.12549020349979,0.12549020349979,0.12549020349979),Name="Blue",Parent={1},Position=UDim2.new(1,-63,0,255),Size=UDim2.new(0,52,0,16),}},
 				{5,"TextBox",{BackgroundColor3=Color3.new(0.25098040699959,0.25098040699959,0.25098040699959),BackgroundTransparency=1,BorderColor3=Color3.new(0.37647062540054,0.37647062540054,0.37647062540054),Font=3,Name="Input",Parent={4},Position=UDim2.new(0,2,0,0),Size=UDim2.new(0,50,0,16),Text="0",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=0,}},
 				{6,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Name="ArrowFrame",Parent={5},Position=UDim2.new(1,-16,0,0),Size=UDim2.new(0,16,1,0),}},
@@ -9149,8 +9149,8 @@ local function main()
 				{93,"Frame",{BackgroundColor3=Color3.new(0.86274510622025,0.86274510622025,0.86274510622025),BorderSizePixel=0,Parent={91},Position=UDim2.new(0,7,0,4),Size=UDim2.new(0,3,0,1),}},
 				{94,"Frame",{BackgroundColor3=Color3.new(0.86274510622025,0.86274510622025,0.86274510622025),BorderSizePixel=0,Parent={91},Position=UDim2.new(0,6,0,3),Size=UDim2.new(0,5,0,1),}},
 				{95,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={82},Position=UDim2.new(0,-40,0,0),Size=UDim2.new(0,34,1,0),Text="Val:",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=1,}},
-				{96,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Font=3,Name="Cancel",Parent={1},Position=UDim2.new(1,-105,1,-28),Size=UDim2.new(0,100,0,25),Text="Cancel",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
-				{97,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Font=3,Name="Ok",Parent={1},Position=UDim2.new(1,-210,1,-28),Size=UDim2.new(0,100,0,25),Text="OK",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
+				{96,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Font=3,Name="Cancel",Parent={1},Position=UDim2.new(1,-105,1,-28),Size=UDim2.new(0,100,0,25),Text="Отмена",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
+				{97,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Font=3,Name="Ok",Parent={1},Position=UDim2.new(1,-210,1,-28),Size=UDim2.new(0,100,0,25),Text="ОК",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
 				{98,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Image="rbxassetid://1072518502",Name="ColorStrip",Parent={1},Position=UDim2.new(1,-30,0,5),Size=UDim2.new(0,13,0,200),}},
 				{99,"Frame",{BackgroundColor3=Color3.new(0.3137255012989,0.3137255012989,0.3137255012989),BackgroundTransparency=1,BorderSizePixel=0,Name="ArrowFrame",Parent={1},Position=UDim2.new(1,-16,0,1),Size=UDim2.new(0,5,0,208),}},
 				{100,"Frame",{BackgroundTransparency=1,Name="Arrow",Parent={99},Position=UDim2.new(0,-2,0,-4),Size=UDim2.new(0,8,0,16),}},
@@ -9163,7 +9163,7 @@ local function main()
 			local window = Lib.Window.new()
 			window.Resizable = false
 			window.Alignable = false
-			window:SetTitle("Color Picker")
+			window:SetTitle("Выбор цвета")
 			window:Resize(450,330)
 			for i,v in pairs(guiContents:GetChildren()) do
 				v.Parent = window.GuiElems.Content
@@ -10006,9 +10006,9 @@ local function main()
 				{9,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={7},Position=UDim2.new(0,-40,0,0),Size=UDim2.new(0,34,1,0),Text="Time",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=1,}},
 				{10,"Frame",{BackgroundColor3=Color3.new(1,1,1),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),Name="ColorBox",Parent={1},Position=UDim2.new(0,220,0,95),Size=UDim2.new(0,20,0,20),}},
 				{11,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Title",Parent={10},Position=UDim2.new(0,-40,0,0),Size=UDim2.new(0,34,1,0),Text="Color",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,TextXAlignment=1,}},
-				{12,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Close",Parent={1},Position=UDim2.new(1,-90,0,95),Size=UDim2.new(0,80,0,20),Text="Close",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
-				{13,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Reset",Parent={1},Position=UDim2.new(1,-180,0,95),Size=UDim2.new(0,80,0,20),Text="Reset",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
-				{14,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Delete",Parent={1},Position=UDim2.new(0,280,0,95),Size=UDim2.new(0,80,0,20),Text="Delete",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
+				{12,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Close",Parent={1},Position=UDim2.new(1,-90,0,95),Size=UDim2.new(0,80,0,20),Text="Закрыть",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
+				{13,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Reset",Parent={1},Position=UDim2.new(1,-180,0,95),Size=UDim2.new(0,80,0,20),Text="ресет",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
+				{14,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.21568627655506,0.21568627655506,0.21568627655506),BorderSizePixel=0,Font=3,Name="Delete",Parent={1},Position=UDim2.new(0,280,0,95),Size=UDim2.new(0,80,0,20),Text="Удалить",TextColor3=Color3.new(0.86274516582489,0.86274516582489,0.86274516582489),TextSize=14,}},
 				{15,"Frame",{BackgroundTransparency=1,Name="Arrow",Parent={1},Size=UDim2.new(0,16,0,16),Visible=false,}},
 				{16,"Frame",{BackgroundColor3=Color3.new(0.86274510622025,0.86274510622025,0.86274510622025),BorderSizePixel=0,Parent={15},Position=UDim2.new(0,8,0,3),Size=UDim2.new(0,1,0,2),}},
 				{17,"Frame",{BackgroundColor3=Color3.new(0.86274510622025,0.86274510622025,0.86274510622025),BorderSizePixel=0,Parent={15},Position=UDim2.new(0,7,0,5),Size=UDim2.new(0,3,0,2),}},
@@ -10019,7 +10019,7 @@ local function main()
 			local window = Lib.Window.new()
 			window.Resizable = false
 			window:Resize(650,150)
-			window:SetTitle("ColorSequence Editor")
+			window:SetTitle("Редактор Колор сиквенса")
 			newMt.Window = window
 			newMt.Gui = window.Gui
 			for i,v in pairs(guiContents:GetChildren()) do
@@ -10883,7 +10883,7 @@ local function main()
 
 	ModelViewer.Init = function()
 		window = Lib.Window.new()
-		window:SetTitle("3D Preview")
+		window:SetTitle("3D Просмотр")
 		window:Resize(350,200)
 		ModelViewer.Window =  window
 		
@@ -10989,40 +10989,40 @@ local function main()
 		context.MaxHeight = (absoluteSize.Y <= 600 and (absoluteSize.Y - 40)) or nil
 
 		-- Registers
-		context:Register("STOP",{Name = "Stop Viewing", OnClick = function()
+		context:Register("STOP",{Name = "Остановить просмотр", OnClick = function()
 			ModelViewer.StopViewModel()
 		end})
-		context:Register("EXIT",{Name = "Exit", OnClick = function()
+		context:Register("EXIT",{Name = "Выйти", OnClick = function()
 			ModelViewer.StopViewModel()
 			context:Hide()
 			window:Hide()
 		end})
-		context:Register("COPY_PATH",{Name = "Copy Path", OnClick = function()
+		context:Register("COPY_PATH",{Name = "Скопировать путь", OnClick = function()
 			if model then
 				env.setclipboard(getPath(originalModel))
 			end
 		end})
-		context:Register("REFRESH",{Name = "Refresh", OnClick = function()
+		context:Register("REFRESH",{Name = "Обновить", OnClick = function()
 			if originalModel then
 				ModelViewer.ViewModel(originalModel)
 			end
 		end})
-		context:Register("ENABLE_AUTO_REFRESH",{Name = "Enable Auto Refresh", OnClick = function()
+		context:Register("ENABLE_AUTO_REFRESH",{Name = "Включить авто обновление", OnClick = function()
 			if originalModel then
 				ModelViewer.AutoRefresh = true
 				ModelViewer.ViewModel(originalModel)
 			end
 		end})
-		context:Register("DISABLE_AUTO_REFRESH",{Name = "Disable Auto Refresh", OnClick = function()
+		context:Register("DISABLE_AUTO_REFRESH",{Name = "Выключить авто обновление", OnClick = function()
 			if originalModel then
 				ModelViewer.AutoRefresh = false
 				ModelViewer.ViewModel(originalModel)
 			end
 		end})
-		context:Register("SAVE_INST",{Name = "Save to File", OnClick = function()
+		context:Register("SAVE_INST",{Name = "Сохранить", OnClick = function()
 			if model then
-				Lib.SaveAsPrompt("Place_"..game.PlaceId.."_"..originalModel.Name.."_"..os.time(), function(filename)
-					window:SetTitle(originalModel.Name.." - Model Viewer - Saving")	
+				Lib.SaveAsPrompt("Игра_"..game.PlaceId.."_"..originalModel.Name.."_"..os.time(), function(filename)
+					window:SetTitle(originalModel.Name.." - Просмотрщик моделей - Сохранено")	
 					
 					local success, result = pcall(env.saveinstance,
 					originalModel, filename,
@@ -11033,44 +11033,44 @@ local function main()
 					)
 					
 					if success then
-						window:SetTitle(originalModel.Name.." - Model Viewer - Saved")
+						window:SetTitle(originalModel.Name.." - Просмотрщик моделей - Сохранено")
 						context:Hide()
 						task.wait(5)
 						if model then
-							window:SetTitle(originalModel.Name.." - Model Viewer")
+							window:SetTitle(originalModel.Name.." - Просмотрщик моделей")
 						end
 					else
-						window:SetTitle(originalModel.Name.." - Model Viewer - Error")
+						window:SetTitle(originalModel.Name.." - Просмотрщик моделей - Ощибка")
 						warn("Error while saving model: "..result)
 						context:Hide()
 						task.wait(5)
 						if model then
-							window:SetTitle(originalModel.Name.." - Model Viewer")
+							window:SetTitle(originalModel.Name.." - Просмотрщик моделей")
 						end
 					end
 				end)
 			end
 		end})
 		
-		context:Register("ENABLE_AUTO_ROTATE",{Name = "Enable Auto Rotate", OnClick = function()
+		context:Register("ENABLE_AUTO_ROTATE",{Name = "Включить авто вращение", OnClick = function()
 			ModelViewer.AutoRotate = true
 			
 		end})
-		context:Register("DISABLE_AUTO_ROTATE",{Name = "Disable Auto Rotate", OnClick = function()
+		context:Register("DISABLE_AUTO_ROTATE",{Name = "Выключить авто вращение", OnClick = function()
 			ModelViewer.AutoRotate = false
 		end})
-		context:Register("LOCK_CAM",{Name = "Lock Camera", OnClick = function()
+		context:Register("LOCK_CAM",{Name = "Блокировать камеру", OnClick = function()
 			ModelViewer.EnableInputCamera = false
 		end})
-		context:Register("UNLOCK_CAM",{Name = "Unlock Camera", OnClick = function()
+		context:Register("UNLOCK_CAM",{Name = "Разблокировать камеру", OnClick = function()
 			ModelViewer.EnableInputCamera = true
 		end})
 		
-		context:Register("ZOOM_IN",{Name = "Zoom In", OnClick = function()
+		context:Register("ZOOM_IN",{Name = "Приблизить", OnClick = function()
 			distance = math.clamp(distance - (ModelViewer.ZoomMultiplier * 2), 2, math.huge)
 		end})
 		
-		context:Register("ZOOM_OUT",{Name = "Zoom Out", OnClick = function()
+		context:Register("ZOOM_OUT",{Name = "Отдалить", OnClick = function()
 			distance = math.clamp(distance + (ModelViewer.ZoomMultiplier * 2), 2, math.huge)
 		end})
 		
@@ -11588,7 +11588,7 @@ local function main()
 					if not foundAttrs[name] then
 						local category = (typ == "Instance" and "Class") or (typ == "EnumItem" and "Enum") or "Other"
 						local valType = {Name = typeNameConvert[typ] or typ, Category = category}
-						local attrProp = {IsAttribute = true, Name = "ATTR_"..name, AttributeName = name, DisplayName = name, Class = "Instance", ValueType = valType, Category = "Attributes", Tags = {}}
+						local attrProp = {IsAttribute = true, Name = "АТТР_"..name, AttributeName = name, DisplayName = name, Class = "Instance", ValueType = valType, Category = "Attributes", Tags = {}}
 						props[propCount] = attrProp
 						propCount = propCount + 1
 						attrCount = attrCount + 1
@@ -11844,7 +11844,7 @@ local function main()
 			local prop = viewList[index + Properties.Index]
 			if not prop or input.UserInputType ~= Enum.UserInputType.MouseMovement then return end
 
-			local fullName = (prop.CategoryName and "CAT_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
+			local fullName = (prop.CategoryName and "КОШКА_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
 
 			Main.MiscIcons:DisplayByKey(newEntry.NameFrame.Expand.Icon, expanded[fullName] and "Collapse_Over" or "Expand_Over")
 		end)
@@ -11853,7 +11853,7 @@ local function main()
 			local prop = viewList[index + Properties.Index]
 			if not prop or input.UserInputType ~= Enum.UserInputType.MouseMovement then return end
 
-			local fullName = (prop.CategoryName and "CAT_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
+			local fullName = (prop.CategoryName and "КОШКА_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
 
 			Main.MiscIcons:DisplayByKey(newEntry.NameFrame.Expand.Icon, expanded[fullName] and "Collapse" or "Expand")
 		end)
@@ -11862,7 +11862,7 @@ local function main()
 			local prop = viewList[index + Properties.Index]
 			if not prop then return end
 
-			local fullName = (prop.CategoryName and "CAT_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
+			local fullName = (prop.CategoryName and "КОШКА_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
 			if not prop.CategoryName and not Properties.ExpandableTypes[prop.ValueType and prop.ValueType.Name] and not Properties.ExpandableProps[fullName] then return end
 
 			expanded[fullName] = not expanded[fullName]
@@ -12094,12 +12094,12 @@ local function main()
 			win = Lib.Window.new()
 			win.Alignable = false
 			win.Resizable = false
-			win:SetTitle("Add Attribute")
+			win:SetTitle("Добавить аттрибут")
 			win:SetSize(200,130)
 
 			local saveButton = Lib.Button.new()
 			local nameLabel = Lib.Label.new()
-			nameLabel.Text = "Name"
+			nameLabel.Text = "Имя"
 			nameLabel.Position = UDim2.new(0,30,0,10)
 			nameLabel.Size = UDim2.new(0,40,0,20)
 			win:Add(nameLabel)
@@ -12113,7 +12113,7 @@ local function main()
 			end)
 
 			local typeLabel = Lib.Label.new()
-			typeLabel.Text = "Type"
+			typeLabel.Text = "Тип"
 			typeLabel.Position = UDim2.new(0,30,0,40)
 			typeLabel.Size = UDim2.new(0,40,0,20)
 			win:Add(typeLabel)
@@ -12131,10 +12131,10 @@ local function main()
 			errorLabel.Size = UDim2.new(1,-10,0,20)
 			errorLabel.TextColor3 = Settings.Theme.Important
 			win.ErrorLabel = errorLabel
-			win:Add(errorLabel,"Error")
+			win:Add(errorLabel,"Ощибка")
 
 			local cancelButton = Lib.Button.new()
-			cancelButton.Text = "Cancel"
+			cancelButton.Text = "Отмена"
 			cancelButton.Position = UDim2.new(1,-97,1,-25)
 			cancelButton.Size = UDim2.new(0,92,0,20)
 			cancelButton.OnClick:Connect(function()
@@ -12142,7 +12142,7 @@ local function main()
 			end)
 			win:Add(cancelButton)
 
-			saveButton.Text = "Save"
+			saveButton.Text = "Сохранить"
 			saveButton.Position = UDim2.new(0,5,1,-25)
 			saveButton.Size = UDim2.new(0,92,0,20)
 			saveButton.OnClick:Connect(function()
@@ -12157,7 +12157,7 @@ local function main()
 
 				local typ = typeChooser.Selected
 				local valType = {Name = Properties.TypeNameConvert[typ] or typ, Category = "DataType"}
-				local attrProp = {IsAttribute = true, Name = "ATTR_"..name, AttributeName = name, DisplayName = name, Class = "Instance", ValueType = valType, Category = "Attributes", Tags = {}}
+				local attrProp = {IsAttribute = true, Name = "АТТР_"..name, AttributeName = name, DisplayName = name, Class = "Instance", ValueType = valType, Category = "Attributes", Tags = {}}
 
 				Settings.Properties.ShowAttributes = true
 				Properties.SetProp(attrProp,Properties.DefaultPropValue[valType.Name],true,Properties.EditingAttribute)
@@ -12170,7 +12170,7 @@ local function main()
 		end
 
 		Properties.EditingAttribute = editAttr
-		win:SetTitle(editAttr and "Edit Attribute "..editAttr.AttributeName or "Add Attribute")
+		win:SetTitle(editAttr and "Редактировать аттрибуты "..editAttr.AttributeName or "Добавить аттрибуты")
 		win.Elements.Error.Text = ""
 		win.Elements.NameBox:SetText("")
 		win.Elements.SaveButton:SetDisabled(true)
@@ -12579,7 +12579,7 @@ local function main()
 					nameFrame.Position = UDim2.new(0,leftOffset,0,0)
 					propNameLabel.Size = UDim2.new(1,-2 - (scaleType == 0 and 0 or 6),1,0)
 
-					local gName = (prop.CategoryName and "CAT_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
+					local gName = (prop.CategoryName and "КОШКА_"..prop.CategoryName) or prop.Class.."."..prop.Name..(prop.SubName or "")
 
 					if prop.CategoryName then
 						entry.BackgroundColor3 = Settings.Theme.Main1
@@ -12915,10 +12915,10 @@ local function main()
 		Properties.EntryTemplate = create({
 			{1,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderColor3=Color3.new(0.1294117718935,0.1294117718935,0.1294117718935),Font=3,Name="Entry",Position=UDim2.new(0,1,0,1),Size=UDim2.new(0,250,0,22),Text="",TextSize=14,}},
 			{2,"Frame",{BackgroundColor3=Color3.new(0.04313725605607,0.35294118523598,0.68627452850342),BackgroundTransparency=1,BorderColor3=Color3.new(0.33725491166115,0.49019610881805,0.73725491762161),BorderSizePixel=0,Name="NameFrame",Parent={1},Position=UDim2.new(0,20,0,0),Size=UDim2.new(1,-40,1,0),}},
-			{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="PropName",Parent={2},Position=UDim2.new(0,2,0,0),Size=UDim2.new(1,-2,1,0),Text="Anchored",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,TextTruncate=1,TextXAlignment=0,}},
+			{3,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="PropName",Parent={2},Position=UDim2.new(0,2,0,0),Size=UDim2.new(1,-2,1,0),Text="Анчоред",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,TextTruncate=1,TextXAlignment=0,}},
 			{4,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,ClipsDescendants=true,Font=3,Name="Expand",Parent={2},Position=UDim2.new(0,-20,0,1),Size=UDim2.new(0,20,0,20),Text="",TextSize=14,Visible=false,}},
 			{5,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://5642383285",ImageRectOffset=Vector2.new(144,16),ImageRectSize=Vector2.new(16,16),Name="Icon",Parent={4},Position=UDim2.new(0,2,0,2),ScaleType=4,Size=UDim2.new(0,16,0,16),}},
-			{6,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=4,Name="ToggleAttributes",Parent={2},Position=UDim2.new(1,-85,0,0),Size=UDim2.new(0,85,0,22),Text="[SETTING: OFF]",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,Visible=false,}},
+			{6,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=4,Name="ToggleAttributes",Parent={2},Position=UDim2.new(1,-85,0,0),Size=UDim2.new(0,85,0,22),Text="[НАСТРОЙКИ: ОТК]",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,Visible=false,}},
 			{7,"Frame",{BackgroundColor3=Color3.new(0.04313725605607,0.35294118523598,0.68627452850342),BackgroundTransparency=1,BorderColor3=Color3.new(0.33725491166115,0.49019607901573,0.73725491762161),BorderSizePixel=0,Name="ValueFrame",Parent={1},Position=UDim2.new(1,-100,0,0),Size=UDim2.new(0,80,1,0),}},
 			{8,"Frame",{BackgroundColor3=Color3.new(0.14117647707462,0.14117647707462,0.14117647707462),BorderColor3=Color3.new(0.33725491166115,0.49019610881805,0.73725491762161),BorderSizePixel=0,Name="Line",Parent={7},Position=UDim2.new(0,-1,0,0),Size=UDim2.new(0,1,1,0),}},
 			{9,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="ColorButton",Parent={7},Size=UDim2.new(0,20,0,22),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,Visible=false,}},
@@ -12938,7 +12938,7 @@ local function main()
 			{23,"Frame",{BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderColor3=Color3.new(0.1294117718935,0.1294117718935,0.1294117718935),Name="Slider",Parent={22},Position=UDim2.new(0,-4,0,-8),Size=UDim2.new(0,8,0,18),}},
 			{24,"TextButton",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="EditAttributeButton",Parent={1},Position=UDim2.new(1,-20,0,0),Size=UDim2.new(0,20,0,22),Text="",TextColor3=Color3.new(1,1,1),TextSize=14,}},
 			{25,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://5034718180",ImageTransparency=0.20000000298023,Name="Icon",Parent={24},Position=UDim2.new(0,2,0,3),Size=UDim2.new(0,16,0,16),}},
-			{26,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderSizePixel=0,Font=3,Name="RowButton",Parent={1},Size=UDim2.new(1,0,1,0),Text="Add Attribute",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,Visible=false,}},
+			{26,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderSizePixel=0,Font=3,Name="RowButton",Parent={1},Size=UDim2.new(1,0,1,0),Text="Добавить аттрибут",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,Visible=false,}},
 			--{27,"UIStroke",{ApplyStrokeMode=Enum.ApplyStrokeMode.Border,Color=Color3.fromRGB(33,33,33),Thickness=1,Parent={1}}}
 		})
 
@@ -12978,7 +12978,7 @@ local function main()
 		categoryOrder =  API.CategoryOrder
 		for category,_ in next,categoryOrder do
 			if not Properties.CollapsedCategories[category] then
-				expanded["CAT_"..category] = true
+				expanded["КОШКА_"..category] = true
 			end
 		end
 		expanded["Sound.SoundId"] = true
@@ -13091,7 +13091,7 @@ end
 local function main()
 	local SaveInstance = {}
 	local window, ListFrame
-	local fileName = "Place_"..game.PlaceId.."_"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."_{TIMESTAMP}"
+	local fileName = "Игра_"..game.PlaceId.."_"..game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name.."_{TIMESTAMP}"
 	local Saving = false
 	
 	local SaveInstanceArgs = {
@@ -13237,22 +13237,22 @@ local function main()
 		
 		-- Options
 		
-		local Decompile = AddCheckbox("Decompile Scripts (LocalScript and ModuleScript)", SaveInstanceArgs.Decompile)
+		local Decompile = AddCheckbox("Декомпилировать скрипты (Локальные и Модульные)", SaveInstanceArgs.Decompile)
 		Decompile.OnInput:Connect(function()
 			SaveInstanceArgs.Decompile = Decompile.Toggled
 		end)
 		
-		local decompileTimeout = AddTextbox("Decompile Timeout (s)", SaveInstanceArgs.DecompileTimeout, 15)
+		local decompileTimeout = AddTextbox("Таймаут декомпиляции (s)", SaveInstanceArgs.DecompileTimeout, 15)
 		decompileTimeout.TextBox.FocusLost:Connect(function()
 			SaveInstanceArgs.DecompileTimeout = tonumber(decompileTimeout.TextBox.Text)
 		end)
 		
-		local decompileThread = AddTextbox("Decompiler Max Threads", "3", 15)
+		local decompileThread = AddTextbox("Максимальное количество потоков", "3", 15)
 		decompileThread.TextBox.FocusLost:Connect(function()
 			SaveInstanceArgs.MaxThreads = tonumber(decompileThread.TextBox.Text)
 		end)
 		
-		local decompileIgnore = AddTextbox("Decompile Ignore", table.concat(SaveInstanceArgs.DecompileIgnore, ","), 50)
+		local decompileIgnore = AddTextbox("Декомпиляция проигнорирована", table.concat(SaveInstanceArgs.DecompileIgnore, ","), 50)
 		decompileIgnore.TextBox.FocusLost:Connect(function()
 			local inputText = decompileIgnore.TextBox.Text
 			local rawList = string.split(inputText, ", ") or string.split(inputText, ",")
@@ -13268,32 +13268,32 @@ local function main()
 		end)
 
 		
-		local NilObj = AddCheckbox("Save Nil Instances", SaveInstanceArgs.NilInstances)
+		local NilObj = AddCheckbox("Сохранить НИЛ Инстансес", SaveInstanceArgs.NilInstances)
 		NilObj.OnInput:Connect(function()
 			SaveInstanceArgs.NilInstances = NilObj.Toggled
 		end)
 
-		local RemovePlayerChar = AddCheckbox("Remove Player Characters", SaveInstanceArgs.RemovePlayerCharacters)
+		local RemovePlayerChar = AddCheckbox("Удалить чаракстеры игроков", SaveInstanceArgs.RemovePlayerCharacters)
 		RemovePlayerChar.OnInput:Connect(function()
 			SaveInstanceArgs.RemovePlayerCharacters = RemovePlayerChar.Toggled
 		end)
 		
-		local SavePlayerObj = AddCheckbox("Save Player Instance", SaveInstanceArgs.SavePlayers)
+		local SavePlayerObj = AddCheckbox("Созранить инстенсы игроков", SaveInstanceArgs.SavePlayers)
 		SavePlayerObj.OnInput:Connect(function()
 			SaveInstanceArgs.SavePlayers = SavePlayerObj.Toggled
 		end)
 		
-		local IsolateStarterPlr = AddCheckbox("Isolate StarterPlayer", SaveInstanceArgs.IsolateStarterPlayer)
+		local IsolateStarterPlr = AddCheckbox("Изолировать стартер плеер", SaveInstanceArgs.IsolateStarterPlayer)
 		IsolateStarterPlr.OnInput:Connect(function()
 			SaveInstanceArgs.IsolateStarterPlayer = IsolateStarterPlr.Toggled
 		end)
 		
-		local IgnoreDefaultProps = AddCheckbox("Ignore Default Properties", SaveInstanceArgs.IgnoreDefaultProps)
+		local IgnoreDefaultProps = AddCheckbox("Игнорировать стандартные пропертисы", SaveInstanceArgs.IgnoreDefaultProps)
 		IgnoreDefaultProps.OnInput:Connect(function()
 			SaveInstanceArgs.IgnoreDefaultProps = IgnoreDefaultProps.Toggled
 		end)
 		
-		local ShowStat = AddCheckbox("Show Status", SaveInstanceArgs.ShowStatus)
+		local ShowStat = AddCheckbox("Показать статус", SaveInstanceArgs.ShowStatus)
 		ShowStat.OnInput:Connect(function()
 			SaveInstanceArgs.ShowStatus = ShowStat.Toggled
 		end)
@@ -13331,16 +13331,16 @@ local function main()
 		FilenameTextBox.TextBox.Text = fileName
 		Button.MouseButton1Click:Connect(function()
 			local fileName = FilenameTextBox.TextBox.Text:gsub("{TIMESTAMP}", os.date("%d-%m-%Y_%H-%M-%S"))
-			window:SetTitle("Save Instance - Saving")
+			window:SetTitle("Сохранить инстансы - Сохранено")
 			local s, result = pcall(env.saveinstance, game, fileName, SaveInstanceArgs)
 			if s then
-				window:SetTitle("Save Instance - Saved")
+				window:SetTitle("Сохранить инстансы - Сохранено")
 			else
-				window:SetTitle("Save Instance - Error")
+				window:SetTitle("Сохранить инстансы - Ощибка")
 				task.spawn(error("Failed to save the game: "..result))
 			end
 			task.wait(5)
-			window:SetTitle("Save Instance")
+			window:SetTitle("Сохранить инстансы")
 			---env.saveinstance(game, fileName, SaveInstanceArgs)
 		end)
 	end
@@ -13504,7 +13504,7 @@ local function main()
 
 	ScriptViewer.Init = function()
 		window = Lib.Window.new()
-		window:SetTitle("Notepad")
+		window:SetTitle("Нотпад")
 		window:Resize(500,400)
 		ScriptViewer.Window = window
 
@@ -13517,7 +13517,7 @@ local function main()
 		copy.BackgroundTransparency = 1
 		copy.Size = UDim2.new(0.33,0,0,20)
 		copy.Position = UDim2.new(0,0,0,0)
-		copy.Text = "Copy to Clipboard"
+		copy.Text = "Сохранить в буфер обмена"
 		
 		if env.setclipboard then
 			copy.TextColor3 = Color3.new(1,1,1)
@@ -13536,7 +13536,7 @@ local function main()
 		save.BackgroundTransparency = 1
 		save.Size = UDim2.new(0.33,0,0,20)
 		save.Position = UDim2.new(0.33,0,0,0)
-		save.Text = "Save to File"
+		save.Text = "Сохранить в файл"
 		save.TextColor3 = Color3.new(1,1,1)
 		
 		if env.writefile then
@@ -13549,7 +13549,7 @@ local function main()
 
 		save.MouseButton1Click:Connect(function()
 			local source = codeFrame:GetText()
-			local filename = "Place_"..game.PlaceId.."_Script_"..os.time()..".txt"
+			local filename = "Игра_"..game.PlaceId.."_Скрипт_"..os.time()..".lua"
 
 			Lib.SaveAsPrompt(filename,source)
 			--env.writefile(filename,source)
@@ -13559,7 +13559,7 @@ local function main()
 		dumpbtn.BackgroundTransparency = 1
 		dumpbtn.Position = UDim2.new(0.7,0,0,0)
 		dumpbtn.Size = UDim2.new(0.3,0,0,20)
-		dumpbtn.Text = "Dump Functions"
+		dumpbtn.Text = "Дамп функций"
 		dumpbtn.TextColor3 = Color3.new(0.5,0.5,0.5)
 		
 		if env.getgc then
@@ -13583,7 +13583,7 @@ local function main()
 		execute.BackgroundTransparency = 1
 		execute.Size = UDim2.new(0.5,0,0,20)
 		execute.Position = UDim2.new(0,0,1,-20)
-		execute.Text = "Execute"
+		execute.Text = "Екзекьют"
 		execute.TextColor3 = Color3.new(1,1,1)
 		
 		if env.loadstring then
@@ -13603,7 +13603,7 @@ local function main()
 		clear.BackgroundTransparency = 1
 		clear.Size = UDim2.new(0.5,0,0,20)
 		clear.Position = UDim2.new(0.5,0,1,-20)
-		clear.Text = "Clear"
+		clear.Text = "Очистить"
 		clear.TextColor3 = Color3.new(1,1,1)
 
 		clear.MouseButton1Click:Connect(function()
@@ -13618,25 +13618,25 @@ local function main()
 		if not s or not source then
 			PreviousScr = nil
 			dumpbtn.TextColor3 = Color3.new(0.5,0.5,0.5)
-			source = "-- Unable to view source.\n"
-			source = source .. "-- Script Path: "..getPath(scr).."\n"
+			source = "-- Невозможно посмотреть исходник.\n"
+			source = source .. "-- Путь к скрипту: "..getPath(scr).."\n"
 			if (scr.ClassName == "Script" and (scr.RunContext == Enum.RunContext.Legacy or scr.RunContext == Enum.RunContext.Server)) or not scr:IsA("LocalScript") then
-				source = source .. "-- Reason: The script is not running on client. (attempt to decompile ServerScript or 'Script' with RunContext Server)\n"
+				source = source .. "-- Причина: Скрипт запущен нетнатклиенте. (попытка декомпилировать серверный скрипт 'Script' с РанКонтекст Сервер)\n"
 			elseif not env.decompile then
-				source = source .. "-- Reason: Your executor does not support decompiler. (missing 'decompile' function)\n"
+				source = source .. "-- Причина: Твой екзекьютор не поддерживает декомпилятор. (нету 'decompile' функции)\n"
 			else
-				source = source .. "-- Reason: Unknown\n"
+				source = source .. "-- Причина: Неизвестно\n"
 			end
-			source = source .. "-- Executor: "..executorName.." ("..executorVersion..")"
+			source = source .. "-- Екзекьютор: "..executorName.." ("..executorVersion..")"
 		else
 			PreviousScr = scr
 			dumpbtn.TextColor3 = Color3.new(1,1,1)
 
 			local decompiled = source
 
-			source = "-- Script Path: "..getPath(scr).."\n"
-			source = source .. "-- Took "..tostring(math.floor( (tick() - oldtick) * 100) / 100).."s to decompile.\n"
-			source = source .. "-- Executor: "..executorName.." ("..executorVersion..")\n\n"
+			source = "-- Путь к скрипту: "..getPath(scr).."\n"
+			source = source .. "-- Прошло "..tostring(math.floor( (tick() - oldtick) * 100) / 100).."сек до конца декомпиляции.\n"
+			source = source .. "-- Екзекьютор: "..executorName.." ("..executorVersion..")\n\n"
 
 			source = source .. decompiled
 
@@ -13845,7 +13845,7 @@ Main = (function()
 	Main.AppControls = {}
 	Main.Apps = Apps
 	Main.MenuApps = {}
-	Main.GitRepoName = "AZYsGithub/DexPlusPlus"
+	Main.GitRepoName = "H1lkaaaGD/MyScripts"
 
 	Main.DisplayOrders = {
 		SideWindow = 8,
@@ -14674,12 +14674,12 @@ Main = (function()
 			{3,"Frame",{BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderSizePixel=0,ClipsDescendants=true,Name="Holder",Parent={2},Size=UDim2.new(1,0,1,0),}},
 			{4,"UIGradient",{Parent={3},Rotation=30,Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(1,1,0),}),}},
 			{5,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=4,Name="Title",Parent={3},Position=UDim2.new(0,-190,0,15),Size=UDim2.new(0,100,0,50),Text="Dex++",TextColor3=Color3.new(1,1,1),TextSize=50,TextTransparency=1,}},
-			{6,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Desc",Parent={3},Position=UDim2.new(0,-230,0,60),Size=UDim2.new(0,180,0,25),Text="Ultimate Debugging Suite",TextColor3=Color3.new(1,1,1),TextSize=18,TextTransparency=1,}},
-			{7,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="StatusText",Parent={3},Position=UDim2.new(0,20,0,110),Size=UDim2.new(0,180,0,25),Text="Fetching API",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=1,}},
+			{6,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Desc",Parent={3},Position=UDim2.new(0,-230,0,60),Size=UDim2.new(0,180,0,25),Text="Ультимейт чтото там",TextColor3=Color3.new(1,1,1),TextSize=18,TextTransparency=1,}},
+			{7,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="StatusText",Parent={3},Position=UDim2.new(0,20,0,110),Size=UDim2.new(0,180,0,25),Text="Поиск или запрос API... хз...",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=1,}},
 			{8,"Frame",{BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="ProgressBar",Parent={3},Position=UDim2.new(0,110,0,145),Size=UDim2.new(0,0,0,4),}},
 			{9,"Frame",{BackgroundColor3=Color3.new(0.2392156869173,0.56078433990479,0.86274510622025),BorderSizePixel=0,Name="Bar",Parent={8},Size=UDim2.new(0,0,1,0),}},
 			{10,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://2764171053",ImageColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),Parent={8},ScaleType=1,Size=UDim2.new(1,0,1,0),SliceCenter=Rect.new(2,2,254,254),}},
-			{11,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Creator",Parent={2},Position=UDim2.new(1,-110,1,-20),Size=UDim2.new(0,105,0,20),Text="Developed by Chillz.",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
+			{11,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Creator",Parent={2},Position=UDim2.new(1,-110,1,-20),Size=UDim2.new(0,105,0,20),Text="Разработано GSplash.",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
 			{12,"UIGradient",{Parent={11},Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(1,1,0),}),}},
 			{13,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Version",Parent={2},Position=UDim2.new(1,-110,1,-35),Size=UDim2.new(0,105,0,20),Text=Main.Version,TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
 			{14,"UIGradient",{Parent={13},Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(1,1,0),}),}},
@@ -14910,7 +14910,7 @@ Main = (function()
 	Main.SetMainGuiOpen = function(val)
 		Main.MainGuiOpen = val
 
-		Main.MainGui.OpenButton.Text = val and "Close" or "Dex++"
+		Main.MainGui.OpenButton.Text = val and "Закрыть" or "Dex++"
 		if val then Main.MainGui.OpenButton.MainFrame.Visible = true end
 		Main.MainGui.OpenButton.MainFrame:TweenSize(val and UDim2.new(0,224,0,200) or UDim2.new(0,0,0,0),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.2,true)
 		--Main.MainGui.OpenButton.BackgroundTransparency = val and 0 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 0 or 0.2)
@@ -14956,7 +14956,7 @@ Main = (function()
 			{17,"Frame",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Name="App",Parent={1},Size=UDim2.new(0,100,0,100),Visible=false,}},
 			{18,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.2352941185236,0.2352941185236,0.2352941185236),BorderSizePixel=0,Font=3,Name="Main",Parent={17},Size=UDim2.new(1,0,0,60),Text="",TextColor3=Color3.new(0,0,0),TextSize=14,}},
 			{19,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://6579106223",ImageRectSize=Vector2.new(32,32),Name="Icon",Parent={18},Position=UDim2.new(0.5,-16,0,4),ScaleType=4,Size=UDim2.new(0,32,0,32),}},
-			{20,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="AppName",Parent={18},Position=UDim2.new(0,2,0,38),Size=UDim2.new(1,-4,1,-40),Text="Explorer",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,TextTruncate=1,TextWrapped=true,TextYAlignment=0,}},
+			{20,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Font=3,Name="AppName",Parent={18},Position=UDim2.new(0,2,0,38),Size=UDim2.new(1,-4,1,-40),Text="Експлорер",TextColor3=Color3.new(1,1,1),TextSize=14,TextTransparency=0.10000000149012,TextTruncate=1,TextWrapped=true,TextYAlignment=0,}},
 			{21,"Frame",{BackgroundColor3=Color3.new(0,0.66666668653488,1),BorderSizePixel=0,Name="Highlight",Parent={18},Position=UDim2.new(0,0,1,-2),Size=UDim2.new(1,0,0,2),}},
 		})
 		Main.MainGui = gui
@@ -15028,12 +15028,12 @@ Main = (function()
 		end)
 
 		-- Create Main Apps
-		Main.CreateApp({Name = "Explorer", IconMap = Main.LargeIcons, Icon = "Explorer", Open = true, Window = Explorer.Window})
+		Main.CreateApp({Name = "Експлорер", IconMap = Main.LargeIcons, Icon = "Explorer", Open = true, Window = Explorer.Window})
 
-		Main.CreateApp({Name = "Properties", IconMap = Main.LargeIcons, Icon = "Properties", Open = true, Window = Properties.Window})
+		Main.CreateApp({Name = "Пропертисы", IconMap = Main.LargeIcons, Icon = "Properties", Open = true, Window = Properties.Window})
 
 		local cptsOnMouseClick = nil
-		Main.CreateApp({Name = "Click part to select", IconMap = Main.LargeIcons, Icon = 6, OnClick = function(callback)
+		Main.CreateApp({Name = "Нажми на объект чтобы выделить", IconMap = Main.LargeIcons, Icon = 6, OnClick = function(callback)
 			if callback then
 				local mouse = Main.Mouse
 				cptsOnMouseClick = mouse.Button1Down:Connect(function()
@@ -15048,13 +15048,13 @@ Main = (function()
 			else if cptsOnMouseClick ~= nil then cptsOnMouseClick:Disconnect() cptsOnMouseClick = nil end end
 		end})
 
-		Main.CreateApp({Name = "Notepad", IconMap = Main.LargeIcons, Icon = "Script_Viewer", Window = ScriptViewer.Window})
+		Main.CreateApp({Name = "Нотпад", IconMap = Main.LargeIcons, Icon = "Script_Viewer", Window = ScriptViewer.Window})
 		
-		Main.CreateApp({Name = "Console", IconMap = Main.LargeIcons, Icon = "Output", Window = Console.Window})
+		Main.CreateApp({Name = "Консоль", IconMap = Main.LargeIcons, Icon = "Output", Window = Console.Window})
 		
-		Main.CreateApp({Name = "Save Instance", IconMap = Main.LargeIcons, Icon = "Watcher", Window = SaveInstance.Window})
+		Main.CreateApp({Name = "Сохранить инстансы", IconMap = Main.LargeIcons, Icon = "Watcher", Window = SaveInstance.Window})
 		
-		Main.CreateApp({Name = "3D Viewer", IconMap = Explorer.LegacyClassIcons, Icon = 54, Window = ModelViewer.Window})
+		Main.CreateApp({Name = "3D Просмотрщик", IconMap = Explorer.LegacyClassIcons, Icon = 54, Window = ModelViewer.Window})
 
 		--Main.CreateApp({Name = "Secret Service Panel", IconMap = Main.LargeIcons, Icon = "Output", Window = SecretServicePanel.Window})
 
@@ -15161,13 +15161,13 @@ Main = (function()
 		end
 
 		-- Load other modules
-		intro.SetProgress("Loading Modules",0.75)
+		intro.SetProgress("Загрузка модулей",0.75)
 		Main.AppControls.Lib.InitDeps(Main.GetInitDeps()) -- Missing deps now available
 		Main.LoadModules()
 		Lib.FastWait()
 
 		-- Init other modules
-		intro.SetProgress("Initializing Modules",0.9)
+		intro.SetProgress("Инициалищация модулей",0.9)
 		Explorer.Init()
 		Properties.Init()
 		ScriptViewer.Init()
@@ -15203,4 +15203,5 @@ Main.Init()
 
 
 --for i,v in pairs(Main.MissingEnv) do print(i,v) end
+
 
