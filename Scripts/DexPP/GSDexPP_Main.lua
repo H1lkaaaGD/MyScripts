@@ -2,7 +2,7 @@
 	Dex++
 	Version 2.2
 	
-	Developed by Chillz
+	Developed by GSplash
 	
 	Dex++ is a revival of Moon's Dex, made to fulfill Moon's Dex prophecy.
 ]]
@@ -332,7 +332,7 @@ local function main()
 	G2L["15"]["BackgroundTransparency"] = 1;
 	G2L["15"]["Size"] = UDim2.new(1, 0, 1, 0);
 	G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-	G2L["15"]["Text"] = [[Clear]];
+	G2L["15"]["Text"] = [[Очистить]];
 
 
 	-- StarterGui.ScreenGui.Console.Clear.UIPadding
@@ -361,7 +361,7 @@ local function main()
 	G2L["17"]["Size"] = UDim2.new(1, 0, 0, 1);
 	G2L["17"]["Position"] = UDim2.new(0, 20, 0, 0);
 	G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-	G2L["17"]["Text"] = [[(timestamp) <font color="rgb(255, 255, 255)">Output</font>]];
+	G2L["17"]["Text"] = [[(таймстамп) <font color="rgb(255, 255, 255)">Выход</font>]];
 	G2L["17"]["BackgroundTransparency"] = 1;
 
 
@@ -425,7 +425,7 @@ local function main()
 	G2L["1e"]["BackgroundTransparency"] = 1;
 	G2L["1e"]["Size"] = UDim2.new(1, 0, 1, 0);
 	G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-	G2L["1e"]["Text"] = [[Auto Scroll]];
+	G2L["1e"]["Text"] = [[Авто Скролл]];
 
 
 	-- StarterGui.ScreenGui.Console.AutoScroll.UIPadding
@@ -1820,7 +1820,7 @@ local function main()
 	Explorer.InitRightClick = function()
 		local context = Lib.ContextMenu.new()
 
-		context:Register("CUT",{Name = "Cut", IconMap = Explorer.MiscIcons, Icon = "Cut", DisabledIcon = "Cut_Disabled", Shortcut = "Ctrl+Z", OnClick = function()
+		context:Register("CUT",{Name = "Вырезать", IconMap = Explorer.MiscIcons, Icon = "Cut", DisabledIcon = "Cut_Disabled", Shortcut = "Ctrl+Z", OnClick = function()
 			local destroy,clone = game.Destroy,game.Clone
 			local sList,newClipboard = selection.List,{}
 			local count = 1
@@ -1837,7 +1837,7 @@ local function main()
 			selection:Clear()
 		end})
 
-		context:Register("COPY",{Name = "Copy", IconMap = Explorer.MiscIcons, Icon = "Copy", DisabledIcon = "Copy_Disabled", Shortcut = "Ctrl+C", OnClick = function()
+		context:Register("COPY",{Name = "Копировать", IconMap = Explorer.MiscIcons, Icon = "Copy", DisabledIcon = "Copy_Disabled", Shortcut = "Ctrl+C", OnClick = function()
 			local clone = game.Clone
 			local sList,newClipboard = selection.List,{}
 			local count = 1
@@ -1852,7 +1852,7 @@ local function main()
 			clipboard = newClipboard
 		end})
 
-		context:Register("PASTE",{Name = "Paste Into", IconMap = Explorer.MiscIcons, Icon = "Paste", DisabledIcon = "Paste_Disabled", Shortcut = "Ctrl+Shift+V", OnClick = function()
+		context:Register("PASTE",{Name = "Вставить в объект", IconMap = Explorer.MiscIcons, Icon = "Paste", DisabledIcon = "Paste_Disabled", Shortcut = "Ctrl+Shift+V", OnClick = function()
 			local sList = selection.List
 			local newSelection = {}
 			local count = 1
@@ -1876,7 +1876,7 @@ local function main()
 			end
 		end})
 
-		context:Register("DUPLICATE",{Name = "Duplicate", IconMap = Explorer.MiscIcons, Icon = "Copy", DisabledIcon = "Copy_Disabled", Shortcut = "Ctrl+D", OnClick = function()
+		context:Register("DUPLICATE",{Name = "Дублировать", IconMap = Explorer.MiscIcons, Icon = "Copy", DisabledIcon = "Copy_Disabled", Shortcut = "Ctrl+D", OnClick = function()
 			local clone = game.Clone
 			local sList = selection.List
 			local newSelection = {}
@@ -1900,7 +1900,7 @@ local function main()
 			end
 		end})
 
-		context:Register("DELETE",{Name = "Delete", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Delete_Disabled", Shortcut = "Del", OnClick = function()
+		context:Register("DELETE",{Name = "Удалить", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Delete_Disabled", Shortcut = "Del", OnClick = function()
 			local destroy = game.Destroy
 			local sList = selection.List
 			for i = 1,#sList do
@@ -1909,21 +1909,21 @@ local function main()
 			selection:Clear()
 		end})
 		
-		context:Register("DELETE_CHILDREN",{Name = "Delete Children", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Delete_Disabled", Shortcut = "Shift+Del", OnClick = function()
+		context:Register("DELETE_CHILDREN",{Name = "Удалить внутренности", IconMap = Explorer.MiscIcons, Icon = "Delete", DisabledIcon = "Delete_Disabled", Shortcut = "Shift+Del", OnClick = function()
 			local sList = selection.List
 			for i = 1,#sList do
 				pcall(sList[i].Obj.ClearAllChildren,sList[i].Obj)
 			end
 			selection:Clear()
 		end})
-		context:Register("RENAME",{Name = "Rename", IconMap = Explorer.MiscIcons, Icon = "Rename", DisabledIcon = "Rename_Disabled", Shortcut = "F2", OnClick = function()
+		context:Register("RENAME",{Name = "Переименовать", IconMap = Explorer.MiscIcons, Icon = "Rename", DisabledIcon = "Rename_Disabled", Shortcut = "F2", OnClick = function()
 			local sList = selection.List
 			if sList[1] then
 				Explorer.SetRenamingNode(sList[1])
 			end
 		end})
 
-		context:Register("GROUP",{Name = "Group", IconMap = Explorer.MiscIcons, Icon = "Group", DisabledIcon = "Group_Disabled", Shortcut = "Ctrl+G", OnClick = function()
+		context:Register("GROUP",{Name = "Сгруппировать", IconMap = Explorer.MiscIcons, Icon = "Group", DisabledIcon = "Group_Disabled", Shortcut = "Ctrl+G", OnClick = function()
 			local sList = selection.List
 			if #sList == 0 then return end
 
@@ -1938,7 +1938,7 @@ local function main()
 			end
 		end})
 
-		context:Register("UNGROUP",{Name = "Ungroup", IconMap = Explorer.MiscIcons, Icon = "Ungroup", DisabledIcon = "Ungroup_Disabled", Shortcut = "Ctrl+U", OnClick = function()
+		context:Register("UNGROUP",{Name = "Разгруппировать", IconMap = Explorer.MiscIcons, Icon = "Ungroup", DisabledIcon = "Ungroup_Disabled", Shortcut = "Ctrl+U", OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local isa = game.IsA
@@ -1975,7 +1975,7 @@ local function main()
 			end
 		end})
 
-		context:Register("SELECT_CHILDREN",{Name = "Select Children", IconMap = Explorer.MiscIcons, Icon = "SelectChildren", DisabledIcon = "SelectChildren_Disabled", OnClick = function()
+		context:Register("SELECT_CHILDREN",{Name = "Выделить внутренности", IconMap = Explorer.MiscIcons, Icon = "SelectChildren", DisabledIcon = "SelectChildren_Disabled", OnClick = function()
 			local newSelection = {}
 			local count = 1
 			local sList = selection.List
@@ -15203,3 +15203,4 @@ Main.Init()
 
 
 --for i,v in pairs(Main.MissingEnv) do print(i,v) end
+
