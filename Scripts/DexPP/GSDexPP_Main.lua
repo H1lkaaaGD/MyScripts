@@ -1,12 +1,3 @@
---[[
-	Dex++
-	Version 2.2
-	
-	Developed by GSplash
-	
-	Dex++ is a revival of Moon's Dex, made to fulfill Moon's Dex prophecy.
-]]
-
 local selection
 local nodes = {}
 
@@ -15203,5 +15194,6 @@ Main.Init()
 
 
 --for i,v in pairs(Main.MissingEnv) do print(i,v) end
+
 
 
